@@ -1,4 +1,4 @@
-;;; capitalizer.el --- capitalize previous word if necessarily
+;;; capitalizer.el --- capitalize previous word if necessarily -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2014 by Yuta Yamada
 
