@@ -24,7 +24,7 @@
 ;;; Commentary:
 
 ;;; Code:
-(eval-when-compile (require 'cl))
+(require 'cl-lib)
 (autoload 'capitalizer-sql "capitalizer-sql")
 (autoload 'capitalizer-go "capitalizer-go")
 (autoload 'capitalizer-scala "capitalizer-scala")
@@ -51,7 +51,7 @@ Otherwise nil.")
   (interactive)
   (when (and capitalizer-mode
              (not (capitalizer-comment-or-string-p (1- (point)))))
-    (case major-mode
+    (cl-case major-mode
       (go-mode    (capitalizer-go))
       (sql-mode   (capitalizer-sql))
       (scala-mode (capitalizer-scala)))))
