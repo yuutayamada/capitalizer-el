@@ -50,7 +50,8 @@ Otherwise nil.")
   ""
   (interactive)
   (when (and capitalizer-mode
-             (not (capitalizer-comment-or-string-p (1- (point)))))
+             (not (capitalizer-comment-or-string-p (1- (point))))
+             (not (bobp)))
     (cl-case major-mode
       (go-mode    (capitalizer-go))
       (sql-mode   (capitalizer-sql))
