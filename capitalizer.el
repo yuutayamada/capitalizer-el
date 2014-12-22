@@ -67,7 +67,8 @@ Otherwise nil.")
 
 (defun capitalizer-comment-or-string-p (&optional point)
   "Return non-nil if current POINT is comment or string face."
-  (save-excursion (nth 8 (syntax-ppss (max 0 (or point (point)))))))
+  (unless (bobp)
+    (save-excursion (nth 8 (syntax-ppss (max 0 (or point (point))))))))
 
 (provide 'capitalizer)
 
