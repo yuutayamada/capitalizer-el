@@ -41,10 +41,11 @@ Otherwise nil.")
             (set (make-local-variable 'capitalizer-prog-mode-flag) t)))
 
 (easy-mmode-define-minor-mode
- capitalizer-mode "Capitalize mode related things" nil " ©" nil
- (if capitalizer-mode
-     (add-hook 'post-self-insert-hook 'capitalizer-capitalize)
-   (remove-hook 'post-self-insert-hook 'capitalizer-capitalize)))
+    capitalizer-mode "Capitalize mode related things" nil " ©" nil
+    (if capitalizer-mode
+        (remove-hook 'post-self-insert-hook 'capitalizer-capitalize)
+      (unless buffer-read-only
+        (add-hook 'post-self-insert-hook 'capitalizer-capitalize))))
 
 (defun capitalizer-capitalize ()
   ""
